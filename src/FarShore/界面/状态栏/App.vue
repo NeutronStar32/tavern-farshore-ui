@@ -1,6 +1,7 @@
-﻿<template>
+<template>
   <main class="console">
     <TopBar />
+    <LocationRow />
 
     <div class="gauges">
       <ScaleBar label="燃料" :value="store.data.船.燃料" :max="100" unit="%" :tone="toneOf(数据.燃料)" />
@@ -35,6 +36,7 @@ import { computed } from 'vue';
 import CargoPanel from './components/CargoPanel.vue';
 import ContactPanel from './components/ContactPanel.vue';
 import FoldSection from './components/FoldSection.vue';
+import LocationRow from './components/LocationRow.vue';
 import ScaleBar from './components/ScaleBar.vue';
 import StandingPanel from './components/StandingPanel.vue';
 import StatusDot from './components/StatusDot.vue';

@@ -3,6 +3,7 @@
     <span class="top__ship">余烬号</span>
     <span class="top__date">{{ store.data.世界.当前日期 }}</span>
     <span class="top__period">{{ store.data.世界.时段 }}</span>
+    <span class="top__money">{{ 余额 }}</span>
     <span v-if="!sailing" class="top__rest" title="停泊中"></span>
   </header>
 </template>
@@ -14,6 +15,9 @@ import { useDataStore } from '../store';
 const store = useDataStore();
 
 const sailing = computed(() => store.data.世界.航行状态.状态 !== '停泊');
+
+// 余额只在顶栏报数，不做千位逗号以外的修饰
+const 余额 = computed(() => `${Math.round(store.data.账户.余额).toLocaleString('en-US')} cr`);
 </script>
 
 <style lang="scss" scoped>
@@ -46,10 +50,17 @@ const sailing = computed(() => store.data.世界.航行状态.状态 !== '停泊
   font-size: 11px;
 }
 
+.top__money {
+  margin-left: auto;
+  color: var(--c-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
 .top__rest {
   width: 6px;
   height: 6px;
-  margin-left: auto;
   align-self: center;
   background: var(--c-calm);
 }

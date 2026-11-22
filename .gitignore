@@ -11,3 +11,9 @@ pnpm-debug.log*
 
 auto-imports.d.ts
 components.d.ts
+
+# 本地预览用（不随仓库发布）
+preview.html
+probe.html
+z.global.js
+pinia-shim.js

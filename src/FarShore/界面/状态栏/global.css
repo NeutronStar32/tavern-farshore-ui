@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 底色：旧钢与控制台面板 */
+  --c-surface: #1b1e22;
+  --c-surface-raised: #242930;
+  --c-border: #39414a;
+
+  /* 文字层级 */
+  --c-text: #d5dae0;
+  --c-text-muted: #7c858f;
+
+  /* 语义色：强调、警示、危险、安稳、敌意 */
+  --c-primary: #b4622f;
+  --c-warn: #c98a2e;
+  --c-danger: #b23b34;
+  --c-calm: #4f7f6a;
+  --c-hostile: #8b4450;
+
+  /* 字体：读数用等宽，正文用系统无衬线 */
+  --font-readout: 'ZeoSeven', ui-monospace, 'Cascadia Mono', 'Sarasa Mono SC', Consolas, monospace;
+  --font-body: 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
+}
+
+body {
+  background: transparent;
+  color: var(--c-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+}

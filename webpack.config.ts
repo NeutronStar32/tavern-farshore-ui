@@ -1,4 +1,4 @@
-import { FSWatcher, watch } from 'chokidar';
+﻿import { FSWatcher, watch } from 'chokidar';
 import HtmlInlineScriptWebpackPlugin from 'html-inline-script-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import _ from 'lodash';
@@ -108,7 +108,7 @@ function watch_tavern_helper(compiler: webpack.Compiler) {
 
 let watcher: FSWatcher;
 const dump = () => {
-  exec('pnpm dump', { cwd: import.meta.dirname });
+  if (process.env.DSH_NO_SPAWN !== '1') exec('pnpm dump', { cwd: import.meta.dirname });
   console.info('\x1b[36m[schema_dump]\x1b[0m 已将所有 schema.ts 转换为 schema.json');
 };
 const dump_debounced = _.debounce(dump, 500, { leading: true, trailing: false });
@@ -130,7 +130,7 @@ function schema_dump(compiler: webpack.Compiler) {
 
 let child_process: ChildProcess;
 const bundle = () => {
-  exec('pnpm sync bundle all', { cwd: import.meta.dirname });
+  if (process.env.DSH_NO_SPAWN !== '1') exec('pnpm sync bundle all', { cwd: import.meta.dirname });
   console.info('\x1b[36m[tavern_sync]\x1b[0m 已打包所有配置了的角色卡/世界书/预设');
 };
 const bundle_debounced = _.debounce(bundle, 500, { leading: true, trailing: false });

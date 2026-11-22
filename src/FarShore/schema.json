@@ -47,15 +47,14 @@
       ]
     },
     "账户": {
+      "default": {},
       "type": "object",
       "properties": {
         "余额": {
+          "default": 2860000,
           "type": "number"
         }
-      },
-      "required": [
-        "余额"
-      ]
+      }
     },
     "船": {
       "type": "object",
@@ -138,7 +137,6 @@
   },
   "required": [
     "世界",
-    "账户",
     "船",
     "货舱",
     "声望",

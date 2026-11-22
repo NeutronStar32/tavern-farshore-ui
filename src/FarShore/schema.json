@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "世界": {
+      "type": "object",
+      "properties": {
+        "当前日期": {
+          "type": "string"
+        },
+        "时段": {
+          "type": "string",
+          "enum": [
+            "清晨",
+            "上午",
+            "午后",
+            "傍晚",
+            "夜"
+          ]
+        },
+        "当前地点": {
+          "type": "string"
+        },
+        "航行状态": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "状态": {
+              "default": "停泊",
+              "type": "string"
+            },
+            "目的地": {
+              "default": "",
+              "type": "string"
+            },
+            "剩余天数": {
+              "default": 0,
+              "type": "number"
+            }
+          }
+        }
+      },
+      "required": [
+        "当前日期",
+        "时段",
+        "当前地点"
+      ]
+    },
+    "船": {
+      "type": "object",
+      "properties": {
+        "燃料": {
+          "type": "number"
+        },
+        "生活物资": {
+          "type": "number"
+        },
+        "船体": {
+          "type": "number"
+        },
+        "护盾": {
+          "type": "number"
+        },
+        "炮台": {
+          "type": "string",
+          "enum": [
+            "正常",
+            "受损",
+            "离线"
+          ]
+        },
+        "冬眠舱占用": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "燃料",
+        "生活物资",
+        "船体",
+        "护盾",
+        "炮台",
+        "冬眠舱占用"
+      ]
+    },
+    "货舱": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "品名"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "数量": {
+            "type": "number"
+          },
+          "估值": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "数量",
+          "估值"
+        ]
+      }
+    },
+    "声望": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "地区或族系名"
+      },
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "接触度": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "族名"
+      },
+      "additionalProperties": {
+        "type": "number"
+      }
+    }
+  },
+  "required": [
+    "世界",
+    "船",
+    "货舱",
+    "声望",
+    "接触度"
+  ]
+}

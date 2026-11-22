@@ -23,10 +23,16 @@ export const Schema = z.object({
       .prefault({}),
   }),
   // 账户：主角手上的现钱。花出去才算数，躺在账上不生利息
-  账户: z.object({
-    // 单位 cr（信用点），数到个位，行情波动不体现在这里
-    余额: z.coerce.number().transform(值 => Math.max(0, Math.round(值))),
-  }),
+  // 老存档里没有这一块，prefault 让它自己长出来，缺了不报错
+  账户: z
+    .object({
+      // 单位 cr（信用点），数到个位，行情波动不体现在这里
+      余额: z.coerce
+        .number()
+        .transform(值 => Math.max(0, Math.round(值)))
+        .prefault(2860000),
+    })
+    .prefault({}),
   // 船：余烬号的存量状态，掉得下去也修得回来
   船: z.object({
     // 燃料百分比，满箱约跑三万光年

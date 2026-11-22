@@ -46,6 +46,17 @@
         "当前地点"
       ]
     },
+    "账户": {
+      "type": "object",
+      "properties": {
+        "余额": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "余额"
+      ]
+    },
     "船": {
       "type": "object",
       "properties": {
@@ -127,6 +138,7 @@
   },
   "required": [
     "世界",
+    "账户",
     "船",
     "货舱",
     "声望",
